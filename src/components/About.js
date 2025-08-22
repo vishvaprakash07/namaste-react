@@ -5,17 +5,13 @@ import UserClass from "./UserClass";
 class About extends React.Component {
     constructor(props) {
         super(props);
-        console.log("parent Constructor");
+
     }
 
-    componentDidMount() {
-        console.log("parent ComponentDidMount");
-
-        
+    componentDidMount() {        
     }
 
     render() {
-        console.log("parent Render");
         return (
             <div>
                 <h1>About Us</h1>

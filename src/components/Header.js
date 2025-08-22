@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { LOGO_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import UserContext from '../utils/UserContext';
 
 const Header = () => {
 
     const [btnNameReact, setbtnNameReact] = useState("Login");
     const onlineStatus = useOnlineStatus();
-    console.log("Header Rendered");
+    const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        console.log("UseEffect called");
     }, [btnNameReact]);
 
     return (
@@ -18,7 +18,7 @@ const Header = () => {
             <div className="m-2">
                 <img className="w-30" alt="logo" src={LOGO_URL}/>
             </div>
-            <h5 className="content-center">Online Status: {onlineStatus ? "🟢" : "🔴"}</h5>
+            <h5 className="content-center">Online Status: {onlineStatus ? "✅" : "❌"}</h5>
             <div className="flex items-center">
                 <ul className='flex p-4 m-4'>
                     <li className='px-4'><Link to='/'>Home</Link></li>
@@ -29,6 +29,7 @@ const Header = () => {
                     <button className='login' onClick={() => {
                         btnNameReact === "Login" ? setbtnNameReact("Logout") :
                         setbtnNameReact("Login") }}>{ btnNameReact }</button>
+                    <li className='px-4'>User: { loggedInUser }</li>
                 </ul>
             </div>
 

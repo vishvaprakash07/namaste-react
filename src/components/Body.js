@@ -13,8 +13,6 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
-  console.log("Body Rendered");
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -24,7 +22,6 @@ const Body = () => {
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
     setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -79,7 +76,6 @@ const Body = () => {
                 }
               );
               setFilteredRestaurants(filteredRestaurants);
-              console.log("Top rated restaurants", filteredRestaurants);
             }}
           >
             Top Rated Restaurants

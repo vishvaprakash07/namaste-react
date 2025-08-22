@@ -4,7 +4,6 @@ class UserClass extends React.Component {
     
     constructor(props) {
         super(props);
-        // console.log("User Class Props",props);
         this.state = {
             userInfo: {
                 avatar_url: null,
@@ -13,11 +12,9 @@ class UserClass extends React.Component {
             }
         }
 
-        console.log("child constructor");
     }
 
     async componentDidMount() {
-        console.log("Child componentDidMount");
         const data = await fetch("https://api.github.com/users/vishvaprakash07");
         const json = await data.json();
         this.setState({
@@ -26,11 +23,9 @@ class UserClass extends React.Component {
     };
 
     componentDidUpdate() {
-        console.log("Child componentDidUpdate");
     }
 
     componentWillUnmount() {
-        console.log("Child componentWillUnmount");
     }
 
     render() {
