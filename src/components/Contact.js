@@ -11,8 +11,8 @@ const Contact = () => {
                 <br />
                 <button type="submit" className="bg-blue-500 rounded-lg text-white p-2 m-2">Submit</button>
             </form>
-            <h2>Contact us for support</h2>
-            <h3>Email: vishvaprakash07@gmail.com</h3>
+            {/* <h2>Contact us for support</h2>
+            <h3>Email: vishvaprakash07@gmail.com</h3> */}
         </div>
     );
 };
