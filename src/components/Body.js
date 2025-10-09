@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
+const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -13,7 +14,7 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
-  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+  
   const {loggedInUser, setUserName} = useContext(UserContext);
 
   useEffect(() => {
@@ -50,9 +51,12 @@ const Body = () => {
           <input
             type="text"
             placeholder="Search"
+            data-testid="search-input"
             className="border border-solid border-black"
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
           />
           <button
             className="bg-green-200 hover:bg-green-400 m-4 px-4 py-2 rounded-lg cursor-pointer"
